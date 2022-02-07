@@ -6,4 +6,17 @@
   <p>Rating: {{this.rating}}</p>
   <p>Description:<br />
     {{this.description}}</p>
+
+  <a href="/books">Back to all books</a>
+  |
+  <a href="/books/{{this._id}}/edit">Edit</a>
+  <br>
+  <br>
+
+  <form action="/books/{{this._id}}/delete" method="POST">
+    <button>
+      Delete
+    </button>
+  </form>
+
 </section>
