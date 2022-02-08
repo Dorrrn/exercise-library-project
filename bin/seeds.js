@@ -24,7 +24,7 @@ mongoose
 
 // PASTE HERE THE LIST OF BOOKS PROVIDED IN THIS GIST: https://gist.github.com/ironhack-edu/2816267a015d4870f95275cb873d33b6
 
-// --- >!!  Warining: in case you want to drop collection
+// === !!  Warining: in case you want to drop collection ====
 //Book.collection.drop();
 //Author.collection.drop();
 
