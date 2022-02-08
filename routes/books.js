@@ -16,11 +16,21 @@ router.get("/", (req, res, next) => {
 //===== Create GET-route for /books/create
 // !! must be above :bookId, otherwise it will match it
 router.get("/create", (req, res, next) => {
-  res.render("books/book-create");
+  //const authorId = req.query._id;
+
+  Author.find()
+    .then((authorDetails) => {
+      console.log(authorDetails);
+      res.render("books/book-create", { author: authorDetails });
+    })
+    .catch((err) => {
+      console.log("Error getting author details from DB...", err);
+    });
 });
 
 // ===== Create POST-route for books/create submit page
 router.post("/create", (req, res, next) => {
+  //const author =
   const { title, author, description, rating } = req.body;
   const bookDetails = req.body;
 

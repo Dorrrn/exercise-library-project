@@ -1,0 +1,21 @@
+<h1>Authors in our DB:</h1>
+
+{{#each authors}}
+
+  <section class="author-summary">
+    <h2>Name: {{this.name}}</h2>
+
+    <p>Age: {{this.age}}</p>
+    <p>Country: {{this.country}}</p>
+
+    <p>Number of books: this.</p>
+
+
+    <a href="/books/{{this._id}}">Show details</a>
+    |
+    <a href="/books/{{this._id}}/edit">Edit</a>
+
+  </section>
+  <hr />
+
+{{/each}}
