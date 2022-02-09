@@ -30,7 +30,7 @@ router.get("/create", (req, res, next) => {
 
 // ===== Create POST-route for books/create submit page
 router.post("/create", (req, res, next) => {
-  //const author =
+  
   const { title, author, description, rating } = req.body;
   const bookDetails = req.body;
 

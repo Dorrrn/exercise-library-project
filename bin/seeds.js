@@ -78,23 +78,21 @@ Promise.all([booksPromise, authorsPromise])
     console.log("error seeding data in DB...", err);
   });
 
-// Book.create(books)
-//   .then((booksFromDB) => {
-//     console.log(`Created ${booksFromDB.length} books`);
-//     // Once created, close the DB connection
-//     //mongoose.connection.close();
-//   })
-//   .catch((err) =>
-//     console.log(`An error occurred while creating books from the DB: ${err}`)
-//   );
+Book.create(books)
+  .then((booksFromDB) => {
+    console.log(`Created ${booksFromDB.length} books`);
+  })
+  .catch((err) =>
+    console.log(`An error occurred while creating books from the DB: ${err}`)
+  );
 
-// Author.create(authors)
-//   .then((authorsFromDB) => {
-//     console.log(`Created ${authorsFromDB.length} books`);
+Author.create(authors)
+  .then((authorsFromDB) => {
+    console.log(`Created ${authorsFromDB.length} books`);
 
-//     // Once created, close the DB connection
-//     mongoose.connection.close();
-//   })
-//   .catch((err) =>
-//     console.log(`An error occurred while creating authors from the DB: ${err}`)
-//   );
+    // Once created, close the DB connection
+    mongoose.connection.close();
+  })
+  .catch((err) =>
+    console.log(`An error occurred while creating authors from the DB: ${err}`)
+  );
