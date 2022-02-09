@@ -1,15 +1,17 @@
 <div id="form">
-  <h2>Signup</h2>
+  <h2>Register</h2>
+
+  {{#if errorMessage}}
+    <p class=""error>
+      {{errorMessage}}
+    </p>
+  {{/if}}
+
   <form action="/signup" method="POST">
 
     <label>
       Email
-      <input
-        type="email"
-        name="email"
-        placeholder="rockstar@ironhack.com"
-        required
-      />
+      <input type="email" name="email" placeholder="rockstar@ironhack.com" />
     </label>
 
     <label>
@@ -20,5 +22,7 @@
     <button type="submit">Create account</button>
 
     {{! error message will be added here }}
+
+
   </form>
 </div>
