@@ -24,7 +24,7 @@ router.get("/", (req, res, next) => {
         return { name, age, country, numberOfBooks };
       });
 
-      res.render("authors/authors-list", { authors: authorsArr });
+      res.render("authors/authors-list", { authors: authorsArr});
     })
     .catch((err) => {
       console.log("Error getting authors from DB...", err);

@@ -30,6 +30,15 @@ const capitalized = (string) =>
 
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
+// Local variable to use eg. in layout.hbs
+app.use( (req, res, next) => {
+  res.locals.session = req.session;
+
+  //res.locals.userInSession = req.session.currentUser;
+  next();
+});
+
+
 // 👇 Start handling routes here
 
 app.use("/", require("./routes/index"));
