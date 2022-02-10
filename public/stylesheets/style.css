@@ -6,7 +6,14 @@ body {
 a {
   color: #00b7ff;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1em;
+}
+
+button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 6px 15px;
 }
 
 form {
@@ -104,4 +111,13 @@ ul li {
 
 #logout-form button {
   width: 120px;
+}
+
+#nav-bar {
+display:inline-flex
+}
+
+#nav-right {
+  position: absolute;
+  right: 50;
 }

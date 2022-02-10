@@ -101,4 +101,13 @@ router.get("/user-profile", (req, res) => {
   res.render("users/user-profile", {userInSession: req.session.currentUser});
 });
 
+
+// Create route for logout
+router.post("/logout", (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) next(err);
+    res.redirect("/");
+  });
+});
+
 module.exports = router;
