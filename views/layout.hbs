@@ -16,7 +16,7 @@
   </div>
 
   <div id="nav-right">
-    {{#if session.currentUser}}
+    {{#if userInSession}}
       <div class="LoggedIn">
         <button><a href="/user-profile">Profile</a></button>
         <form id="logout-form" action="/logout" method="POST">
@@ -24,7 +24,7 @@
         </form>
       </div>
 
-      <h2>Welcome, {{session.currentUser.email}}!</h2>
+      <h2>Welcome, {{userInSession.email}}!</h2>
 
     {{else}}
       <div class="LoggedOut">

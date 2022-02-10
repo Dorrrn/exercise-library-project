@@ -3,16 +3,17 @@ const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
 const User = require("../models/User.model");
 const saltRounds = 10;
+const { isLoggedIn, isLoggedOut } = require("../middleware/middleware.js");
 
-///// ===== Sign up page ====== /////
+///// ===== User pages ====== /////
 
 // Create GET-route for /signup
-router.get("/signup", (req, res, next) => {
+router.get("/signup", isLoggedOut, (req, res, next) => {
   res.render("auth/signup");
 });
 
 // Create POST-route for /signup to process form data
-router.post("/signup", (req, res, next) => {
+router.post("/signup", isLoggedOut, (req, res, next) => {
   const { email, password } = req.body;
 
   // check if email and pw are provided
@@ -61,7 +62,7 @@ router.post("/signup", (req, res, next) => {
 ///// ===== Login page ====== /////
 
 // Create GET-route for /login
-router.get("/login", (req, res, next) => {
+router.get("/login", isLoggedOut, (req, res, next) => {
   res.render("auth/login");
 });
 
@@ -84,7 +85,7 @@ router.post("/login", (req, res, next) => {
         });
         return;
       } else if (bcryptjs.compareSync(password, userFromDB.passwordHash)) {
-        req.session.currentUser = userFromDB; 
+        req.session.currentUser = userFromDB;
         res.redirect("/user-profile");
       } else {
         res.render("auth/login", {
@@ -97,13 +98,12 @@ router.post("/login", (req, res, next) => {
 });
 
 // Create route for /user-profile
-router.get("/user-profile", (req, res) => {
-  res.render("users/user-profile", {userInSession: req.session.currentUser});
+router.get("/user-profile", isLoggedIn, (req, res) => {
+  res.render("users/user-profile");
 });
 
-
 // Create route for logout
-router.post("/logout", (req, res, next) => {
+router.post("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((err) => {
     if (err) next(err);
     res.redirect("/");

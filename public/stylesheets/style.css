@@ -21,6 +21,10 @@ form {
   width: 380px;
 }
 
+#form {
+  text-align: center;
+}
+
 form label {
   color: #666;
   display: inline-block;
@@ -119,5 +123,6 @@ display:inline-flex
 
 #nav-right {
   position: absolute;
-  right: 50;
+  right: 40;
+ 
 }
