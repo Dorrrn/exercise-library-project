@@ -78,7 +78,7 @@ router.get("/:bookId/edit", (req, res, next) => {
     });
 });
 
-// ===== Create route for book edit page
+// ===== Create route for book update page
 router.post("/:bookId/edit", (req, res, next) => {
   const bookId = req.params.bookId;
   const { title, author, description, rating } = req.body;
